@@ -1,26 +1,37 @@
+div {
+  border:1px solid black;
+}
 
 body{
   background-color: #606060;
   color:#ffffff;
 }
 
+#intro{
+  margin-left:30px;
+}
 .pageheadline{
   font-family: 'Merriweather', serif;
   font-size:3em;
   font-style:italic;
   color:#ffffff;
+  margin-left:10px; 
 }
 
-#pics img{
+#pics .insta{
   margin:15px;
-  width:200px;
+  width:330px;
   height:auto;
   -webkit-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
-}
+  -moz-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
+  }
 
 .map-display {
-    height: 600px;
+    position:relative;
+    top:15px;
+    right:75px;
+    height: 340px;
     width: 600px;
+    float:right;
   }
