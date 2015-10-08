@@ -1,3 +1,25 @@
+
+body{
+  background-color: #606060;
+  color:#ffffff;
+}
+
+.pageheadline{
+  font-family: 'Merriweather', serif;
+  font-size:3em;
+  font-style:italic;
+  color:#ffffff;
+}
+
+#pics img{
+  margin:15px;
+  width:200px;
+  height:auto;
+  -webkit-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
+}
+
 .map-display {
     height: 600px;
     width: 600px;
