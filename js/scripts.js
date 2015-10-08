@@ -34,7 +34,7 @@ function initialize() {
       success: function(data) {
         if (data.data.length >= 5) {
           for (var i = 0; i < 20; i++) {
-            $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+            $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
           }
         } else {
           document.location.reload();
