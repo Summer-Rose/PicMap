@@ -28,9 +28,9 @@ function randomLatLng() {
 
 
 
-// map.addListener('click', function() {
-//   infowindow.open(marker.get('map'), marker);
-// })
+map.addListener('click', function() {
+  infowindow.open(marker.get('map'), marker);
+})
 
 // // $(document).ready(function() {
 // //
