@@ -32,8 +32,12 @@ function initialize() {
       cache: false,
       url: "https://api.instagram.com/v1/media/search?lat=" + lat + "&lng=" + lng + "&distance=5000&client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
       success: function(data) {
-        for (var i = 0; i < 20; i++) {
-          $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+        if (data.data.length >= 5) {
+          for (var i = 0; i < 20; i++) {
+            $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+          }
+        } else {
+          document.location.reload();
         }
       }
     });
