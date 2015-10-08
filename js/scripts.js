@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function initialize() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
@@ -35,3 +36,5 @@ map.addListener('click', function() {
 // // $(document).ready(function() {
 // //
 // // });
+=======
+>>>>>>> ac89e7c99ae916b91868b61dd0359c23c22bd7b4

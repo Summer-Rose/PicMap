@@ -6,11 +6,43 @@
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title></title>
+    <title>PicMap</title>
+
+    <script>
+
+    $(function() {
+
+        $.ajax({
+            type: "GET",
+            dataType: "jsonp",
+            cache: false,
+            //url:"https://api.instagram.com/v1/locations/search?lat=48.858844&lng=2.294351&client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
+            // url: "https://api.instagram.com/v1/tags/pdx/media/recent?client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
+            url: "https://api.instagram.com/v1/media/search?lat=45.5200&lng=122.6819&distance=5000&client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
+            success: function(data) {
+                for (var i = 0; i < 20; i++) {
+                    $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+                }
+            }
+        });
+    });
+
+    </script>
+
   </head>
   <body onload="initialize()">
 
     <div class="map-display" id="map"></div>
 
+<<<<<<< HEAD
+=======
+
+
+      <div id="pics">
+
+      </div>
+
+    </div>
+>>>>>>> ac89e7c99ae916b91868b61dd0359c23c22bd7b4
   </body>
 </html>
