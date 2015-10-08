@@ -20,14 +20,32 @@ function initialize() {
     markersArray.push(marker);
     console.log( latitude + ', ' + longitude );
   });
+
+  var coords = randomLatLng();
+  var lat = coords[0];
+  var lng = coords[1];
+
+  $(function() {
+    $.ajax({
+      type: "GET",
+      dataType: "jsonp",
+      cache: false,
+      url: "https://api.instagram.com/v1/media/search?lat=" + lat + "&lng=" + lng + "&distance=5000&client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
+      success: function(data) {
+        for (var i = 0; i < 20; i++) {
+          $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+        }
+      }
+    });
+  });
 }
 
 function deletePreviousMarker() {
   if (markersArray) {
-  for (i in markersArray) {
-    markersArray[i].setMap(null);
-  }
-  markersArray.length = 0;
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
   }
 }
 
@@ -48,9 +66,6 @@ function randomLatLng() {
   console.log(coordinates);
   return coordinates;
 }
-
-
-
 
 // map.addListener('click', function() {
 //   infowindow.open(marker.get('map'), marker);
