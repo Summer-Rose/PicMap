@@ -4,6 +4,7 @@ var myLatLng;
 var coordinates = [];
 
 function initialize() {
+  randomLatLng();
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: {lat: 37.09024, lng: -95.712891 }
@@ -23,9 +24,8 @@ function initialize() {
     console.log("MarkersArray =" + markersArray);
   });
 
-  var coords = randomLatLng();
-  var lat = coords[0];
-  var lng = coords[1];
+  var lat = coordinates[0];
+  var lng = coordinates[1];
 
   $(function() {
     $.ajax({
@@ -70,11 +70,11 @@ function randomLatLng() {
   coordinates.push(lat);
   coordinates.push(lng);
   console.log(coordinates);
-  return coordinates;
 }
 
 function calculateDifference() { //can later add unit as parameter
   if (markersArray.length > 0) {
+    addOriginalPin();
     var R = 6371;
     var latGuess = markersArray[0].position.J;
     var lngGuess = markersArray[0].position.M;
@@ -95,4 +95,12 @@ function calculateDifference() { //can later add unit as parameter
 
 function deg2rad(deg) {
   return deg * (Math.PI/180)
+}
+
+function addOriginalPin() {
+  var myLatLng = {lat: coordinates[0], lng: coordinates[1]}
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+  });
 }
