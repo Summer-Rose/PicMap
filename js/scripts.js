@@ -131,16 +131,14 @@ function addLine() {
   flightPath.setMap(map);
 }
 
+function newGame() {
+  delete sessionStorage.score;
+  delete sessionStorage.roundsPlayed;
+  document.location.reload();
+}
+
 $(document).ready(function() {
 
-  $("#addScore").click(function() {
-    var userName = $("#userName").val();
-    var usersRef = ref.child("users");
-    usersRef.child(userName).set({
-    name: userName
-    });
-  });
-  
   $("#guess").click(function() {
     if (markersArray.length > 0) {
       var distance = calculateDifference();
@@ -160,6 +158,7 @@ $(document).ready(function() {
         $("#next-round").show();
       } else {
         $("#game-over").text("Game over!");
+        $("#submit-score").show();
       }
       $("#myModal").modal('show');
     } else {
@@ -170,9 +169,16 @@ $(document).ready(function() {
   $("#next-round").click(function() {
     document.location.reload();
   });
+  $("#addScore").click(function() {
+    var userName = $("#userName").val();
+    var usersRef = ref.child("users");
+    usersRef.push().set({
+      name: userName,
+      score: sessionStorage.score
+    });
+    newGame();
+  });
   $("#new-game").click(function() {
-    delete sessionStorage.score;
-    delete sessionStorage.roundsPlayed;
-    document.location.reload();
+    newGame();
   });
 });
