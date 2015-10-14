@@ -31,7 +31,7 @@ function initialize() {
       {lat: coordinates[0], lng: coordinates[1]},
       myLatLng
     ];
-    console.log(lineCoordinates);
+    //console.log(lineCoordinates);
   });
 
   return coordinates;
@@ -82,7 +82,7 @@ function randomLatLng() {
   var lng = bounds.west + lngSpan * Math.random();
   coordinates.push(lat);
   coordinates.push(lng);
-  console.log(coordinates);
+  //console.log(coordinates);
   return coordinates;
 }
 
