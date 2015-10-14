@@ -1,21 +1,50 @@
-/*div {
-  border:1px solid black;
-}*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body{
   background-color: #606060;
   color:#ffffff;
+  height: 100%;
 }
 
-#intro{
-  margin-left:30px;
+.game-display: {
+  width: 100%;
 }
-.pageheadline{
-  font-family: 'Merriweather', serif;
-  font-size:3em;
-  font-style:italic;
-  color:#ffffff;
-  margin-left:10px;
+
+#map-title {
+  margin-left: 370px;
+  height: 100%;
+}
+
+.header {
+  height: 200px;
+}
+
+.map-display {
+    position: absolute;
+    top: 200px;
+    width:100%;
+    bottom: 0;
+    overflow: auto;
+    z-index: 0;
+}
+
+#pics-container {
+
+}
+
+#pics {
+  width: 370px;
+  background-color: #ccc;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;*/
 }
 
 #pics .insta{
@@ -25,13 +54,4 @@ body{
   -webkit-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
-  }
-
-.map-display {
-    position:relative;
-    top:15px;
-    right:75px;
-    height: 340px;
-    width: 600px;
-    float:right;
   }

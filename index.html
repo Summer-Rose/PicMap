@@ -10,21 +10,30 @@
     <title>PicMap</title>
   </head>
   <body onload="initialize()">
-    <div class="container">
-      <div class="row">
+    <div class="game-display">
+      <!-- <div class="row">
         <div class="col-md-12"><h1 class="pageheadline">Play some PicMap!</h1></div>
         <p id="intro">
         Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
         Hit "Make Guess" to learn if your hunch was right!
         </p>
         <p id="score"></p>
-      </div>
-      <div class="row">
-        <div class="col-md-12" id="pics">
-          <div >
+      </div> -->
+
+        <div id="pics-container">
+          <div id="pics"></div>
+        </div>
+        <div id="map-title">
+          <div class="header">
+            <h1 class="pageheadline">Play some PicMap!</h1>
+            <p id="intro">
+              Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
+              Hit "Make Guess" to learn if your hunch was right!
+            </p>
+            <button id="guess" class="btn btn-success">Submit Guess</button>
+            <p id="score"></p>
           </div>
           <div class="map-display" id="map"></div>
-          <button id="guess" class="btn btn-success">Submit Guess</button>
         </div>
     </div>
   </body>
