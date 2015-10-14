@@ -172,7 +172,7 @@ $(document).ready(function() {
   $("#addScore").click(function() {
     var userName = $("#userName").val();
     var usersRef = ref.child("users");
-    usersRef.child(userName).set({
+    usersRef.push().set({
       name: userName,
       score: sessionStorage.score
     });
