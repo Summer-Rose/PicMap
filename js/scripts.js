@@ -76,11 +76,12 @@ function randomLatLng() {
 }
 
 function calculateDifference() { //can later add unit as parameter
+  //debugger;
   if (markersArray.length > 0) {
     addOriginalPin();
     var R = 6371;
-    var latGuess = markersArray[0].position.J;
-    var lngGuess = markersArray[0].position.M;
+    var latGuess = markersArray[0].getPosition().lat();
+    var lngGuess = markersArray[0].getPosition().lng();
     var latActual = coordinates[0];
     var lngActual = coordinates[1];
     var dLat = deg2rad(latActual-latGuess);
@@ -108,3 +109,10 @@ function addOriginalPin() {
     map: map,
   });
 }
+
+$(document).ready(function() {
+  $("#guess").click(function() {
+    var distance = calculateDifference();
+    $("#score").text("Score: " + distance);
+  });
+});
