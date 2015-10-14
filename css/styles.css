@@ -55,3 +55,16 @@ body{
   -moz-box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
   }
+
+.map-display {
+    position:relative;
+    top:15px;
+    right:75px;
+    height: 340px;
+    width: 600px;
+    float:right;
+  }
+
+.modal {
+  color: #606060;
+}
