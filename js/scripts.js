@@ -93,7 +93,7 @@ function calculateDifference() { //can later add unit as parameter
         ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var distance = R * c; // Distance in km
-    return distance;
+    return Math.round(distance);
   }
 }
 
@@ -113,6 +113,21 @@ function addOriginalPin() {
 $(document).ready(function() {
   $("#guess").click(function() {
     var distance = calculateDifference();
-    $("#score").text("Score: " + distance);
+    if (sessionStorage.score) {
+      sessionStorage.score = Number(sessionStorage.score) + distance;
+    } else {
+      sessionStorage.score = distance;
+    }
+    $("#distance").text("You were off by " + distance + " kilometers!");
+    $("#score").text("Score: " + sessionStorage.score);
+    $("#myModal").modal('show');
+  });
+
+  $("#next-round").click(function() {
+    document.location.reload();
+  });
+  $("#new-game").click(function() {
+    delete sessionStorage.score;
+    document.location.reload();
   });
 });
