@@ -5,6 +5,7 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/jquery-1.11.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700italic' rel='stylesheet' type='text/css'>
     <title>PicMap</title>
@@ -14,10 +15,10 @@
       <div class="row">
         <div class="col-md-12"><h1 class="pageheadline">Play some PicMap!</h1></div>
         <p id="intro">
-        Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
-        Hit "Make Guess" to learn if your hunch was right!
+          Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
+          Hit "Make Guess" to learn if your hunch was right! <br>
+          Your goal is to get as low a score as possible!
         </p>
-        <p id="score"></p>
       </div>
       <div class="row">
         <div class="col-md-12" id="pics">
@@ -26,6 +27,19 @@
           <div class="map-display" id="map"></div>
           <button id="guess" class="btn btn-success">Submit Guess</button>
         </div>
+    </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p id="distance"></p>
+            <p id="score"></p>
+            <button id="next-round" class="btn btn-primary">Next round!</button>
+            <button id="new-game" class="btn btn-danger">New Game</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
