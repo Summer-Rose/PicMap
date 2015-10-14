@@ -3,6 +3,8 @@ var markersArray = [];
 var myLatLng;
 var coordinates = [];
 var imageData;
+var starIcon = 'img/star-icon.png';
+var guessIcon = 'img/guess-icon.png';
 
 function initialize() {
   coordinates = [];
@@ -19,10 +21,17 @@ function initialize() {
     myLatLng = {lat: latitude, lng: longitude};
     var marker = new google.maps.Marker({
       position: myLatLng,
+      icon: guessIcon,
       map: map,
     });
     markersArray.push(marker);
-    console.log("MarkersArray =" + markersArray);
+
+    ///TEST
+    var lineCoordinates = [
+      {lat: coordinates[0], lng: coordinates[1]},
+      myLatLng
+    ];
+    console.log(lineCoordinates);
   });
 
   return coordinates;
@@ -77,11 +86,12 @@ function randomLatLng() {
 }
 
 function calculateDifference() { //can later add unit as parameter
+  //debugger;
   if (markersArray.length > 0) {
     addOriginalPin();
     var R = 6371;
-    var latGuess = markersArray[0].position.J;
-    var lngGuess = markersArray[0].position.M;
+    var latGuess = markersArray[0].getPosition().lat();
+    var lngGuess = markersArray[0].getPosition().lng();
     var latActual = coordinates[0];
     var lngActual = coordinates[1];
     var dLat = deg2rad(latActual-latGuess);
@@ -93,7 +103,7 @@ function calculateDifference() { //can later add unit as parameter
         ;
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var distance = R * c; // Distance in km
-    return distance;
+    return Math.round(distance);
   }
 }
 
@@ -105,6 +115,45 @@ function addOriginalPin() {
   var myLatLng = {lat: coordinates[0], lng: coordinates[1]}
   var marker = new google.maps.Marker({
     position: myLatLng,
+    icon: starIcon,
     map: map,
   });
+  addLine();
 }
+
+function addLine() {
+  var lineCoordinates = [
+    {lat: coordinates[0], lng: coordinates[1]},
+    myLatLng
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: lineCoordinates,
+    geodisc: true,
+    strokeColor: '#000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+  flightPath.setMap(map);
+}
+
+$(document).ready(function() {
+  $("#guess").click(function() {
+    var distance = calculateDifference();
+    if (sessionStorage.score) {
+      sessionStorage.score = Number(sessionStorage.score) + distance;
+    } else {
+      sessionStorage.score = distance;
+    }
+    $("#distance").text("You were off by " + distance + " kilometers!");
+    $("#score").text("Score: " + sessionStorage.score);
+    $("#myModal").modal('show');
+  });
+
+  $("#next-round").click(function() {
+    document.location.reload();
+  });
+  $("#new-game").click(function() {
+    delete sessionStorage.score;
+    document.location.reload();
+  });
+});

@@ -35,3 +35,7 @@ body{
     width: 600px;
     float:right;
   }
+
+.modal {
+  color: #606060;
+}
