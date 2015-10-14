@@ -2,14 +2,15 @@ var map;
 var markersArray = [];
 var myLatLng;
 var coordinates = [];
+var imageData;
 var starIcon = 'img/star-icon.png';
 var guessIcon = 'img/guess-icon.png';
 
 function initialize() {
-  randomLatLng();
+  coordinates = [];
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
-    center: {lat: 37.09024, lng: -95.712891 }
+    center: {lat: 37.09024, lng: -95.712891 }//center of us
   });
   randomLatLng();
 
@@ -33,30 +34,29 @@ function initialize() {
     console.log(lineCoordinates);
   });
 
-  var lat = coordinates[0];
-  var lng = coordinates[1];
+  return coordinates;
+}
 
 
-
-
-  $(function() {
+function callImages() {
+  initialize();
     $.ajax({
       type: "GET",
       dataType: "jsonp",
       cache: false,
-      url: "https://api.instagram.com/v1/media/search?lat=" + lat + "&lng=" + lng + "&distance=5000&client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
+      url: "https://api.instagram.com/v1/media/search?lat=" + coordinates[0] + "&lng=" + coordinates[1] + "&distance=5000&client_id=ecc35f29ced04e06ab5ef5f75f8202b8",
       success: function(data) {
         if (data.data.length >= 5) {
-          for (var i = 0; i < 20; i++) {
-            $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
-          }
-        } else {
-          document.location.reload();
-        }
-      }
-    });
+           for (var i = 0; i < data.data.length; i++) {
+             $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+           }
+         } else {
+           callImages();
+         }
+
+    }
   });
-}
+  }
 
 function deletePreviousMarker() {
   if (markersArray) {
@@ -82,6 +82,7 @@ function randomLatLng() {
   coordinates.push(lat);
   coordinates.push(lng);
   console.log(coordinates);
+  return coordinates;
 }
 
 function calculateDifference() { //can later add unit as parameter
