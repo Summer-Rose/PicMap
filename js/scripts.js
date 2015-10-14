@@ -139,15 +139,19 @@ function addLine() {
 
 $(document).ready(function() {
   $("#guess").click(function() {
-    var distance = calculateDifference();
-    if (sessionStorage.score) {
-      sessionStorage.score = Number(sessionStorage.score) + distance;
+    if (markersArray.length > 0) {
+      var distance = calculateDifference();
+      if (sessionStorage.score) {
+        sessionStorage.score = Number(sessionStorage.score) + distance;
+      } else {
+        sessionStorage.score = distance;
+      }
+      $("#distance").text("You were off by " + distance + " kilometers!");
+      $("#score").text("Score: " + sessionStorage.score);
+      $("#myModal").modal('show');
     } else {
-      sessionStorage.score = distance;
+      alert("Please make a guess by selecting a point on the map.");
     }
-    $("#distance").text("You were off by " + distance + " kilometers!");
-    $("#score").text("Score: " + sessionStorage.score);
-    $("#myModal").modal('show');
   });
 
   $("#next-round").click(function() {
