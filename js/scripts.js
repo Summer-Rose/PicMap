@@ -138,6 +138,15 @@ function addLine() {
 }
 
 $(document).ready(function() {
+
+  $("#addScore").click(function() {
+    var userName = $("#userName").val();
+    var usersRef = ref.child("users");
+    usersRef.child(userName).set({
+    name: userName
+    });
+  });
+  
   $("#guess").click(function() {
     if (markersArray.length > 0) {
       var distance = calculateDifference();
