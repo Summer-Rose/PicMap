@@ -24,11 +24,20 @@ function initialize() {
       map: map,
     });
     markersArray.push(marker);
-    console.log("MarkersArray =" + markersArray);
+
+    ///TEST
+    var lineCoordinates = [
+      {lat: coordinates[0], lng: coordinates[1]},
+      myLatLng
+    ];
+    console.log(lineCoordinates);
   });
 
   var lat = coordinates[0];
   var lng = coordinates[1];
+
+
+
 
   $(function() {
     $.ajax({
@@ -107,4 +116,21 @@ function addOriginalPin() {
     icon: starIcon,
     map: map,
   });
+  addLine();
+}
+
+function addLine() {
+  var lineCoordinates = [
+    {lat: coordinates[0], lng: coordinates[1]},
+    myLatLng
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: lineCoordinates,
+    geodisc: true,
+    strokeColor: '#000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+  flightPath.setMap(map);
+
 }
