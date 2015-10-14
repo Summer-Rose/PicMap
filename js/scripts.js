@@ -132,5 +132,4 @@ function addLine() {
     strokeWeight: 2
   });
   flightPath.setMap(map);
-
 }
