@@ -2,6 +2,8 @@ var map;
 var markersArray = [];
 var myLatLng;
 var coordinates = [];
+var starIcon = 'img/star-icon.png';
+var guessIcon = 'img/guess-icon.png';
 
 function initialize() {
   randomLatLng();
@@ -18,6 +20,7 @@ function initialize() {
     myLatLng = {lat: latitude, lng: longitude};
     var marker = new google.maps.Marker({
       position: myLatLng,
+      icon: guessIcon,
       map: map,
     });
     markersArray.push(marker);
@@ -101,6 +104,7 @@ function addOriginalPin() {
   var myLatLng = {lat: coordinates[0], lng: coordinates[1]}
   var marker = new google.maps.Marker({
     position: myLatLng,
+    icon: starIcon,
     map: map,
   });
 }
