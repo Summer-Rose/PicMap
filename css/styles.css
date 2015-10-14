@@ -62,3 +62,7 @@ body{
 .modal {
   color: #606060;
 }
+
+#next-round {
+  display: none;
+}
