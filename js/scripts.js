@@ -140,8 +140,18 @@ $(document).ready(function() {
       } else {
         sessionStorage.score = distance;
       }
+      if (sessionStorage.roundsPlayed) {
+        sessionStorage.roundsPlayed = Number(sessionStorage.roundsPlayed) + 1;
+      } else {
+        sessionStorage.roundsPlayed = 1;
+      }
       $("#distance").text("You were off by " + distance + " kilometers!");
       $("#score").text("Score: " + sessionStorage.score);
+      if (sessionStorage.roundsPlayed < 5) {
+        $("#next-round").show();
+      } else {
+        $("#game-over").text("Game over!");
+      }
       $("#myModal").modal('show');
     } else {
       alert("Please make a guess by selecting a point on the map.");
@@ -153,6 +163,7 @@ $(document).ready(function() {
   });
   $("#new-game").click(function() {
     delete sessionStorage.score;
+    delete sessionStorage.roundsPlayed;
     document.location.reload();
   });
 });

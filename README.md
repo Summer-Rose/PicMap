@@ -13,6 +13,7 @@ PicMap is game created in JavaScript that allows a user to view a set of random 
 * Clone this repository.
 * Load the index file into your browser
 * Drop a pin on the map to see if you guessed correctly!
+
 ## Technologies Used
 
 * JavaScript

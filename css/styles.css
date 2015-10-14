@@ -62,8 +62,10 @@ body{
   box-shadow: 10px 10px 8px -6px rgba(0,0,0,0.75);
   }
 
-
-
 .modal {
   color: #606060;
+}
+
+#next-round {
+  display: none;
 }
