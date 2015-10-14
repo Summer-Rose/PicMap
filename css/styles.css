@@ -66,3 +66,7 @@ body{
 #next-round {
   display: none;
 }
+
+#submit-score {
+  display: none;
+}

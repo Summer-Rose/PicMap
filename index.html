@@ -26,16 +26,8 @@
           <p id="intro">
             Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
             Hit "Make Guess" to learn if your hunch was right!
-            <br>
-            <form>
-              <label for="userName"> Your name:</label>
-              <input type="text" class="form-control" id="userName" name="userName"><br>
-              <button type="submit" id="addScore" class="btn btn-info">Add Score to Leaderboard!</button>
-            </form>
-            <br>
           </p>
           <button id="guess" class="btn btn-success">Submit Guess</button>
-
         </div>
         <div class="map-display" id="map"></div>
       </div>
@@ -49,6 +41,11 @@
         <p id="distance"></p>
         <p id="score"></p>
         <button id="next-round" class="btn btn-primary">Next round!</button>
+        <form id="submit-score">
+          <label for="userName"> Your name:</label>
+          <input type="text" class="form-control" id="userName" name="userName"><br>
+          <button type="submit" id="addScore" class="btn btn-info">Add Score to Leaderboard!</button>
+        </form>
         <button id="new-game" class="btn btn-danger">New Game</button>
       </div>
     </div>
