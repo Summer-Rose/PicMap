@@ -4,6 +4,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link href="css/loader.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/jquery-1.11.3.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
@@ -17,7 +18,10 @@
     <div class="loading" id="loader">Loading&#8230;</div>
     <div class="game-display">
       <div id="pics-container">
-        <div id="pics"></div>
+        <div id="pics">
+          <h3 class="text-center sidebar_color">Where do you think these photos were taken?</h3><br>
+          <p class="text-center sidebar_color">Click on the map and submit your guess to find out!</p>
+        </div>
       </div>
       <div id="map-title">
         <nav class="navbar navbar-default" id="topNav">
@@ -55,12 +59,14 @@
         <h3 id="game-over"></h3>
         <p id="distance"></p>
         <p id="score"></p>
-        <button id="next-round" class="btn btn-primary">Next round!</button>
+        <button id="next-round" class="btn btn-success">Next round</button>
+
         <form id="submit-score">
           <label for="userName"> Your name:</label>
           <input type="text" class="form-control" id="userName" name="userName"><br>
           <button type="submit" id="addScore" class="btn btn-info">Add Score to Leaderboard!</button>
         </form>
+
         <button id="new-game" class="btn btn-danger">New Game</button>
       </div>
     </div>
