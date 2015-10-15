@@ -48,7 +48,12 @@ function callImages() {
         for (var i = 0; i < data.data.length; i++) {
           $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
           $("#pics").show();
+<<<<<<< HEAD
+          //REMOVE LOADING OVERLAY
+          $("#loader").removeClass("loading");
+=======
           initialize();
+>>>>>>> 27e86a32ec302033c19e84a9506e08f32693aaa9
         }
       } else {
         callImages();
@@ -138,8 +143,9 @@ function newGame() {
   document.location.reload();
 }
 
-$(document).ready(function() {
 
+
+$(document).ready(function() {
   $("#guess").click(function() {
     if (markersArray.length > 0) {
       var distance = calculateDifference();
