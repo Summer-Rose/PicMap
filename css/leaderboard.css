@@ -1,0 +1,24 @@
+.container {
+  width: 90%;
+  height: 100%;
+}
+
+table, th, td {
+  border: 1px solid white;
+  font-size: 30px;
+  padding: 5px;
+}
+
+table {
+  width: 60%;
+  height: 100%;
+  margin auto;
+}
+
+.player {
+  text-align: left;
+}
+
+.score {
+  text-align: right;
+}

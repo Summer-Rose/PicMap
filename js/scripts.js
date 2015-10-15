@@ -171,6 +171,7 @@ $(document).ready(function() {
     document.location.reload();
   });
   $("#addScore").click(function() {
+    var ref = new Firebase("https://picmap.firebaseio.com/");
     var userName = $("#userName").val();
     var usersRef = ref.child("users");
     usersRef.push().set({
