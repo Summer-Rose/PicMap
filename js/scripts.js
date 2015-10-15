@@ -48,7 +48,8 @@ function callImages() {
     success: function(data) {
       if (data.data.length >= 5) {
         for (var i = 0; i < data.data.length; i++) {
-          $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+          //$("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+          $("#pics").append("<img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img>");
           $("#pics").show();
           $("#loader").removeClass("loading");
         }
