@@ -140,6 +140,20 @@ function newGame() {
 
 $(document).ready(function() {
 
+  if (sessionStorage.score === undefined){
+    $(".currentScore").text("0");
+  } else {
+    $(".currentScore").text(sessionStorage.score)
+  };
+
+  if (sessionStorage.roundsPlayed === undefined){
+    $(".currentRound").text("1");
+  } else {
+    var displayRound = Number(sessionStorage.roundsPlayed) + 1;
+    $(".currentRound").text(displayRound)
+  };
+
+
   $("#guess").click(function() {
     if (markersArray.length > 0) {
       var distance = calculateDifference();

@@ -40,6 +40,7 @@
             Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
             Hit "Make Guess" to learn if your hunch was right!
           </p>
+          <p>Round: <span class="currentRound"></span> &nbsp; &nbsp; || &nbsp; &nbsp; Score: <span class="currentScore"></span></p>
           <button id="guess" class="btn btn-success">Submit Guess</button>
         </div>
         <div class="map-display" id="map"></div>
@@ -50,6 +51,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
+        <p><strong>Round: <span class="currentRound"></span></strong></p>
         <h3 id="game-over"></h3>
         <p id="distance"></p>
         <p id="score"></p>
