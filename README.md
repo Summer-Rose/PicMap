@@ -1,12 +1,12 @@
 # PicMap
 
-##### _Peruse a set of photos taken from instagram, and then see if you can guess where they were taken! All photos are tagged with the same latitude and longitude._
+##### _Peruse a set of photos taken from instagram, and then see if you can guess where they were taken! All photos are tagged with the same latitude and longitude.Try for the lowest score to win!_
 
 #### By Summer Brochtrup, Perry Eising, Juliana Suzuki, and Molly Waggett ####
 
 ## Description
 
-PicMap is game created in JavaScript that allows a user to view a set of random images taken from Instagram. All photos are tagged with the same latitude and longitude, hopefully allowing you to make an educated guess as to where they were taken!
+PicMap is game created in JavaScript that allows a user to view a set of random images taken from Instagram. All photos are tagged with the same latitude and longitude, hopefully allowing you to make an educated guess as to where they were taken! The lowest score wins over a five round stretch - check the leaderboard to see if you are a contender for the top spot.
 
 ## Setup
 
@@ -20,6 +20,7 @@ PicMap is game created in JavaScript that allows a user to view a set of random 
 * JSON/AJAX
 * Instagram API
 * Google Maps API
+* Firebase API
 * jQuery
 * Mocha
 * Chai
