@@ -14,44 +14,11 @@
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700italic' rel='stylesheet' type='text/css'>
     <title>PicMap</title>
   </head>
-  <body onload="callImages()">
-    <div class="game-display">
-      <div id="pics-container">
-        <div id="pics"></div>
-      </div>
-      <div id="map-title">
-
-        <div class="header">
-          <h1 class="pageheadline">Play some PicMap!</h1>
-          <p id="intro">
-            Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
-            Hit "Make Guess" to learn if your hunch was right!
-          </p>
-          <button id="guess" class="btn btn-success">Submit Guess</button>
-        </div>
-        <div class="map-display" id="map"></div>
-      </div>
-    </div>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h3 id="game-over"></h3>
-        <p id="distance"></p>
-        <p id="score"></p>
-        <button id="next-round" class="btn btn-primary">Next round!</button>
-        <form id="submit-score">
-          <label for="userName"> Your name:</label>
-          <input type="text" class="form-control" id="userName" name="userName"><br>
-          <button type="submit" id="addScore" class="btn btn-info">Add Score to Leaderboard!</button>
-        </form>
-        <button id="new-game" class="btn btn-danger">New Game</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+  <body>
+    <h1>Welcome to PicMap</h1>
+    <a href="picmap.html" class="btn btn-success">Play USA Mode</a>
+    <a href="picmap.html" class="btn btn-success">Play World Mode</a>
+    <a href="#" class="btn btn-success">View Leaderboard</a>
     <script src="js/scripts.js"></script>
   </body>
 </html>

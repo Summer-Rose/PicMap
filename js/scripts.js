@@ -137,6 +137,8 @@ function newGame() {
   document.location.reload();
 }
 
+
+
 $(document).ready(function() {
 
   $("#guess").click(function() {
