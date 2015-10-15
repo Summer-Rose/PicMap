@@ -5,6 +5,7 @@ var coordinates = [];
 var imageData;
 var starIcon = 'img/star-icon.png';
 var guessIcon = 'img/guess-icon.png';
+var ref = new Firebase("https://picmap.firebaseio.com/");
 
 function initialize() {
   coordinates = [];
@@ -221,13 +222,13 @@ $(document).ready(function() {
     document.location.reload();
   });
   $("#addScore").click(function() {
-    var ref = new Firebase("https://picmap.firebaseio.com/");
     debugger;
     var userName = $("#userName").val();
     var usersRef = ref.child("users");
+    var userScore = sessionStorage.score;
     usersRef.push().set({
       name: userName,
-      score: sessionStorage.score
+      score: userScore
     });
     newGame();
   });
