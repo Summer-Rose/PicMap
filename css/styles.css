@@ -9,7 +9,7 @@ body{
   color:#ffffff;
   height: 100%;
   margin: 0px;
-  padding: 0px
+  padding: 0px;
 }
 
 .sidebar_color{
@@ -53,7 +53,6 @@ body{
 
 #topNav {
   padding-top: 0;
-  margin-top: -20px;
   border-radius: 0;
 }
 
@@ -134,6 +133,10 @@ body{
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+#loader{
+  height:0px;
 }
 
 /* Transparent Overlay */
