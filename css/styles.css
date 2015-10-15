@@ -109,7 +109,7 @@ body{
   margin-top: 10%;
 }
 
-#next-round {
+.next-round {
   display: none;
 }
 
