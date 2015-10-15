@@ -16,9 +16,7 @@
   </head>
   <body onload="callImages()">
 
-
-    <div class="loading">Loading&#8230;</div>
-
+    <div class="loading" id="loader">Loading&#8230;</div>
 
     <div class="game-display">
       <div id="pics-container">
@@ -50,24 +48,24 @@
       </div>
     </div>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <h3 id="game-over"></h3>
-        <p id="distance"></p>
-        <p id="score"></p>
-        <button id="next-round" class="btn btn-primary">Next round!</button>
-        <form id="submit-score">
-          <label for="userName"> Your name:</label>
-          <input type="text" class="form-control" id="userName" name="userName"><br>
-          <button type="submit" id="addScore" class="btn btn-info">Add Score to Leaderboard!</button>
-        </form>
-        <button id="new-game" class="btn btn-danger">New Game</button>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h3 id="game-over"></h3>
+            <p id="distance"></p>
+            <p id="score"></p>
+            <button id="next-round" class="btn btn-primary">Next round!</button>
+            <form id="submit-score">
+              <label for="userName"> Your name:</label>
+              <input type="text" class="form-control" id="userName" name="userName"><br>
+              <button type="submit" id="addScore" class="btn btn-info">Add Score to Leaderboard!</button>
+            </form>
+            <button id="new-game" class="btn btn-danger">New Game</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
     <script src="js/scripts.js"></script>
   </body>
