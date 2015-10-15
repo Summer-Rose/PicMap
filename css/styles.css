@@ -12,6 +12,10 @@ body{
   padding: 0px
 }
 
+.sidebar_color{
+  color:#000000; 
+}
+
 .index_insta{
   width:100%;
   height:auto;
