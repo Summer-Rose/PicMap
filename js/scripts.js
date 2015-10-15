@@ -5,6 +5,7 @@ var coordinates = [];
 var imageData;
 var starIcon = 'img/star-icon.png';
 var guessIcon = 'img/guess-icon.png';
+var ref = new Firebase("https://picmap.firebaseio.com/");
 
 function initialize() {
   coordinates = [];
@@ -47,7 +48,8 @@ function callImages() {
     success: function(data) {
       if (data.data.length >= 5) {
         for (var i = 0; i < data.data.length; i++) {
-          $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+          //$("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
+          $("#pics").append("<img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img>");
           $("#pics").show();
           $("#loader").removeClass("loading");
         }
@@ -221,13 +223,13 @@ $(document).ready(function() {
     document.location.reload();
   });
   $("#addScore").click(function() {
-    var ref = new Firebase("https://picmap.firebaseio.com/");
     debugger;
     var userName = $("#userName").val();
     var usersRef = ref.child("users");
+    var userScore = sessionStorage.score;
     usersRef.push().set({
       name: userName,
-      score: sessionStorage.score
+      score: userScore
     });
     newGame();
   });
