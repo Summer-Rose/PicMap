@@ -137,14 +137,6 @@ function newGame() {
   document.location.reload();
 }
 
-function leaderBoard() {
-  var ref = new Firebase("https://picmap.firebaseio.com/users");
-  ref.orderByChild("score").on("child_added", function(snapshot) {
-    console.log(snapshot.val().name  + " scored " + snapshot.val().score );
-  });
-
-};
-
 $(document).ready(function() {
 
   $("#guess").click(function() {
