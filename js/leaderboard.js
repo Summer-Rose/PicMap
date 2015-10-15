@@ -2,8 +2,8 @@ function leaderBoard() {
   var ref = new Firebase("https://picmap.firebaseio.com/users");
   ref.orderByChild("score").on("child_added", function(snapshot) {
     $("#leaderboard").append("<tr>" +
-                                "<td class='player'>"+snapshot.val().name+"</td>" +
-                                "<td class='score'>"+snapshot.val().score+"</td>" +
+                                "<td>"+snapshot.val().name+"</td>" +
+                                "<td>"+snapshot.val().score+"</td>" +
                               "</tr>");
   });
 };
