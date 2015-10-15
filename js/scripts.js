@@ -139,6 +139,34 @@ function newGame() {
   document.location.reload();
 }
 
+function getRoundScore(distance) {
+  var roundScore = 0;
+  if (distance < 200) {
+    roundScore+=10;
+  } else if (distance > 200 && distance < 400) {
+    roundScore+=9;
+  } else if (distance > 400 && distance < 600) {
+    roundScore+=8;
+  } else if (distance > 600 && distance < 800) {
+    roundScore+=7;
+  } else if (distance > 800 && distance < 1000) {
+    roundScore+=6;
+  } else if (distance > 1000 && distance < 1200) {
+    roundScore+=5;
+  } else if (distance > 1200 && distance < 1400) {
+    roundScore+=5;
+  } else if (distance > 1400 && distance < 1600) {
+    roundScore+=3;
+  } else if (distance > 1600 && distance < 1800) {
+    roundScore+=2;
+  } else if (distance > 1800 && distance < 2000) {
+    roundScore+=1;
+  } else {
+    roundScore+=0;
+  }
+  return roundScore;
+}
+
 $(document).ready(function() {
   $(window).on('load resize', function() {
     $("#map").width($(this).width());
@@ -163,22 +191,24 @@ $(document).ready(function() {
   $("#guess").click(function() {
     if (markersArray.length > 0) {
       var distance = calculateDifference();
+      var roundScore = getRoundScore(distance);
       if (sessionStorage.score) {
-        sessionStorage.score = Number(sessionStorage.score) + distance;
+        sessionStorage.score = Number(sessionStorage.score) + roundScore;
       } else {
-        sessionStorage.score = distance;
+        sessionStorage.score = roundScore;
       }
       if (sessionStorage.roundsPlayed) {
         sessionStorage.roundsPlayed = Number(sessionStorage.roundsPlayed) + 1;
       } else {
         sessionStorage.roundsPlayed = 1;
       }
-      $("#distance").text("You were off by " + distance + " kilometers!");
-      $("#score").text("Score: " + sessionStorage.score);
+
+      $("#distance").text("You were off by " + distance + " kilometers");
+      $("#score").text("Points Earned: " + roundScore);
       if (sessionStorage.roundsPlayed < 5) {
         $("#next-round").show();
       } else {
-        $("#game-over").text("Game over!");
+        $("#game-over").text("Round Complete");
         $("#submit-score").show();
       }
       $("#myModal").modal('show');
@@ -192,6 +222,7 @@ $(document).ready(function() {
   });
   $("#addScore").click(function() {
     var ref = new Firebase("https://picmap.firebaseio.com/");
+    debugger;
     var userName = $("#userName").val();
     var usersRef = ref.child("users");
     usersRef.push().set({

@@ -13,7 +13,7 @@ body{
 }
 
 .sidebar_color{
-  color:#000000; 
+  color:#000000;
 }
 
 .index_insta{
@@ -102,6 +102,7 @@ body{
 
 .modal {
   color: #606060;
+  margin-top: 10%;
 }
 
 #next-round {
