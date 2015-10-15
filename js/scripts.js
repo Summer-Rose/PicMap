@@ -208,7 +208,7 @@ $(document).ready(function() {
       $("#distance").text("You were off by " + distance + " kilometers");
       $("#score").text("Points Earned: " + roundScore);
       if (sessionStorage.roundsPlayed < 5) {
-        $("#next-round").show();
+        $("#next-round-modal").show();
       } else {
         $("#game-over").text("Round Complete");
         $("#submit-score").show();
@@ -219,7 +219,16 @@ $(document).ready(function() {
     }
   });
 
-  $("#next-round").click(function() {
+  $("#myModal").on('show.bs.modal', function () {
+    $(".game-display").click(function() {
+      $("#guess").hide();
+      if (sessionStorage.roundsPlayed < 5) {
+        $("#next-round-nav").show();
+      }
+    });
+  });
+
+  $(".next-round").click(function() {
     document.location.reload();
   });
   $("#addScore").click(function() {
@@ -233,7 +242,7 @@ $(document).ready(function() {
     });
     newGame();
   });
-  $("#new-game").click(function() {
+  $(".new-game").click(function() {
     newGame();
   });
 });
