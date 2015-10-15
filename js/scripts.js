@@ -48,6 +48,7 @@ function callImages() {
         for (var i = 0; i < data.data.length; i++) {
           $("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
           $("#pics").show();
+          $("#loader").removeClass("loading");
         }
       } else {
         callImages();
