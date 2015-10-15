@@ -6,50 +6,52 @@
     <link href="css/loader.css" rel="stylesheet" type="text/css">
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/jquery-1.11.3.js"></script>
-    <script src="js/preload.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-    <script src="js/firebase.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700italic' rel='stylesheet' type='text/css'>
     <title>PicMap</title>
   </head>
   <body onload="callImages()">
+
     <div class="loading" id="loader">Loading&#8230;</div>
     <div class="game-display">
       <div id="pics-container">
         <div id="pics"></div>
       </div>
       <div id="map-title">
-        <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">PicMap</a>
+        <nav class="navbar navbar-default" id="topNav">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="index.html">PicMap</a>
+            </div>
+            <div>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">LEADERBOARD</a></li>
+              </ul>
+            </div>
           </div>
-          <div>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">LEADERBOARD</a></li>
-            </ul>
-          </div>
+        </nav>
+
+        </div>  <div class="map-display" id="map"></div>
+
+        <div id="bottomNav">
+            <div class="guessButton">
+              <button id="guess" class="btn btn-info btn-lg">Submit Guess</button>
+            </div>
+            <div class="score">
+              <p>Round: <span class="currentRound"></span> Score: <span class="currentScore"></span></p>
+            </div>
         </div>
-      </nav>
-        <div class="header">
-          <h1 class="pageheadline">Play some PicMap!</h1>
-          <p id="intro">
-            Here's how it works: review the photos, take a guess as to where they were taken, and then drop a pin on the map. <br>
-            Hit "Make Guess" to learn if your hunch was right!
-          </p>
-          <button id="guess" class="btn btn-success">Submit Guess</button>
-        </div>
-        <div class="map-display" id="map"></div>
-      </div>
     </div>
+
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
+        <p><strong>Round: <span class="currentRound"></span></strong></p>
         <h3 id="game-over"></h3>
         <p id="distance"></p>
         <p id="score"></p>

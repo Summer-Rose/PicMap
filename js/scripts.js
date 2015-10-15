@@ -12,6 +12,7 @@ function initialize() {
     zoom: 4,
     center: {lat: 37.09024, lng: -95.712891 } //center of us
   });
+  map.setOptions({ minZoom: 4, maxZoom: 15});
   randomLatLng();
 
   map.addListener("click", function (event) {
@@ -139,6 +140,25 @@ function newGame() {
 }
 
 $(document).ready(function() {
+  $(window).on('load resize', function() {
+    $("#map").width($(this).width());
+    $(".bottomNav").width($(this).width());
+    $("#map").height($(this).height() - 147);
+  });
+
+  if (sessionStorage.score === undefined){
+    $(".currentScore").text("0");
+  } else {
+    $(".currentScore").text(sessionStorage.score)
+  };
+
+  if (sessionStorage.roundsPlayed === undefined){
+    $(".currentRound").text("1");
+  } else {
+    var displayRound = Number(sessionStorage.roundsPlayed) + 1;
+    $(".currentRound").text(displayRound)
+  };
+
 
   $("#guess").click(function() {
     if (markersArray.length > 0) {
