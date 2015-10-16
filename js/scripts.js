@@ -27,16 +27,9 @@ function initialize() {
       map: map,
     });
     markersArray.push(marker);
-
-    ///TEST
-    var lineCoordinates = [
-      {lat: coordinates[0], lng: coordinates[1]},
-      myLatLng
-    ];
   });
   return coordinates;
 }
-
 
 function callImages() {
   initialize();
@@ -48,7 +41,6 @@ function callImages() {
     success: function(data) {
       if (data.data.length >= 5) {
         for (var i = 0; i < data.data.length; i++) {
-          //$("#pics").append("<a target='_blank' href='" + data.data[i].link + "'><img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img></a>");
           $("#pics").append("<img class='insta' src='" + data.data[i].images.low_resolution.url + "'></img>");
           $("#pics").show();
           $("#loader").removeClass("loading");
@@ -140,6 +132,13 @@ function newGame() {
   delete sessionStorage.roundsPlayed;
   document.location.reload();
 }
+
+// function gameOver() {
+//   delete sessionStorage.score;
+//   delete sessionStorage.roundsPlayed;
+//   document.location.replace("leaderboard.html");
+//   //Redirect to leaderboard doesn't work.
+// }
 
 function getRoundScore(distance) {
   var roundScore = 0;
